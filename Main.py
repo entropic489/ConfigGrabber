@@ -51,21 +51,21 @@ def get_configs():
         output_text.insert(END, ">>>>>>>>Device {0}<<<<<<<<<".format(device['ip']))
         output_text.insert(END, config_output)
         output_text.insert(END, ">>>>>>>>>END<<<<<<<<")
-        f = open('/home/clixx/Desktop/ConfigOutput.txt', 'w')
+        f = open('/home/*****/Desktop/ConfigOutput.txt', 'w')
         f.write(new_output)
         f.close()
 
 #saves current devices to txt file
 def save_devices():
-    f = open('/home/clixx/Desktop/DeviceList.txt', 'w')
+    f = open('/home/*****/Desktop/DeviceList.txt', 'w')
     for device in devices:
         f.write('cisco_ios\n' + str(device.get('ip')) + "\n" + str(device.get('username')) + "\n" + str(device.get('password')) + "\n" + str(device.get('secret')) + "\n")
     f.close()
 
 #loads saved devices from txt file
 def open_devices():
-    f = open('/home/clixx/Desktop/DeviceList.txt', 'r')
-    device_count = sum(1 for line in open('/home/clixx/Desktop/DeviceList.txt'))
+    f = open('/home/*****/Desktop/DeviceList.txt', 'r')
+    device_count = sum(1 for line in open('/home/*****/Desktop/DeviceList.txt'))
     device_count /= 5
     for i in range(1, device_count):
         add_device(f.readline(1 + i), f.readline(2 + i), f.readline(3 + i), f.readline(4 + i), f.readline(5 + i))
