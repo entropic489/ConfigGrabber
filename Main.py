@@ -1,5 +1,25 @@
 import sys
 sys.path.append('/usr/lib/python3.5')
+
+#check for netmiko, install if not present
+if 'netmiko' in sys.modules:
+    print "Dependencies already present"
+else:
+    confirmation = raw_input("Netmiko library required but not present. OK to install? Y/N: ")
+    valid_input = False
+
+    while not valid_input:
+        if confirmation == "y":
+            valid_input = True
+            os.system("gnome-terminal -e 'sudo apt-get install netmiko'")
+            raw_input("A terminal will open to request sudo permission to install netmiko library. Press enter to continue after dependencies installed.")
+        elif confirmation == "n":
+            valid_input = True
+            raw_input("Press enter to quit....")
+            sys.exit()
+        else:
+            confirmation = raw_input("Please provide valid input. OK to install netmiko? Y/N: ")[0]
+
 import netmiko
 from Tkinter import *
 
